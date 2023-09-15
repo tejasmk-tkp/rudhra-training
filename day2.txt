@@ -1,13 +1,13 @@
-dd - delete line
+1. How is commit ID is assigned?
 
-dw - delete word
+2. How is commit different from staging?
 
-cw - change word
+3. Difference between untracked and tracked file?
 
-Modal Editor
+4. What actions require sudo command and why?
 
-How is commit ID is assigned?
+5. What does ls -l give?
 
-how is commit different from staging?
+6. Types of partitions
 
-Difference between untracked and tracked file?
+7. What is lsblk command?
