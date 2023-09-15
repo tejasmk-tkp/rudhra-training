@@ -5,3 +5,9 @@ dw - delete word
 cw - change word
 
 Modal Editor
+
+How is commit ID is assigned?
+
+how is commit different from staging?
+
+Difference between untracked and tracked file?
