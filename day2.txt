@@ -10,15 +10,28 @@ Collision resistance means that it is computationally infeasible to find two dis
 A checksum is a small block of data that's used to detect errors in digital data. It's a set of numbers and letters that acts as a fingerprint for a file. Before transmission, a checksum value is assigned to each piece of data or file. This is done by running a CHF. The checksum value is then appended to the message to be sent to the receiver. Checksum values can be used to verify that your file hasn't been corrupted or modified. If the checksum values don't match, then the file might not have downloaded properly or the connection could have been hijacked. Microsoft File Checksum Integrity Verifier (FCIV) is one free checksum utility. It supports the MD5 and SHA1 cryptographic hash functions.
 
 2. How is commit different from staging?
+	Commiting is the final step in the process of saving changes to a repository and is creates a permanent record of the change, where as staging is the prelimnary step where you get a chance to review your changes before making a commit.
 
 3. Difference between untracked and tracked file?
+	Tracked files are files that have been staged or commited. Git keeps a track of the changes to these files, where as the changes made to untracked files is not recorded by git.
 
 4. What actions require sudo command and why?
+	The sudo command is used to run commands as the superuser or root user and is used to modify system files or install software.
 
 5. What does ls -l give?
-
+	The command ls -l displays the contents of the current working directory in long listing format. Each line displays the file permissions, owner and group name, file size and created/modified date and time.
+	
 6. Types of partitions
+	Primary partion, extended partition, and logical partition.
+
+Primary Partition: Primary partition is a section of a hard drive that stores an operating system, system files, and user data. It is a bootable partition and is assigned a drive letter such as C, D, E, etc. A hard drive can have upto four primary partitions. The primary partition is the only partition that can be used to boot. In windows, the primary partition is typically the C drive.
+
+Extended Partition: The extended partition is used to house the logical partitions. An extended partitionis not formatted or assigned a drive letter. One can use the operating system to create an extended partition.
+
+Logical Partitions: Logical partitions are created within the extended partition and any number of logical partitions can be created within an extended partition. Logical partitions cannot be used to run an operating system.
 
 7. What is lsblk command?
+	lsblk command is used to list all available block devices in linux along with their mount points.
 
 8. What is git clone?
+	git clone command is used to create a copy of a specific repository or a branch within the repository on your local system. Git will create a new directory with the same name as the repository you cloned. This directory will contain a copy of all of the files and folders in the repository along with it's history. Once we make changes to the cloned repository we can push the changes onto the original repository.
