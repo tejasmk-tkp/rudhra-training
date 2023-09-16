@@ -1,4 +1,13 @@
 1. How is commit ID is assigned?
+	A commit ID is assigned in git using a hashing algorithm called SHA-1. SHA-1 is a cryptographic hash function that takes input of any size and produces a 160-bit output. The output is then converted into a 40-character Hexadecimal string. The commit ID is unique to that commit and does not change even is the commit is modified or the repository is cloned. 
+
+A hash function is a mathematical function that scrambles data and makes it unreadable. It's a one way function where the text can be used to encode data and canot be decoded.
+
+Cryptographic hash function (CHF) algorithms are used in a wide range of applications, notably in information security. SHA-256 is the most secure hashing algorithm and has never been decoded till date. CHFs are expected to have three properties, namely -- Collision resistance, Preimage resistance, and Second preimage resistance. SHA-1 is not secure anymore as it was broken years ago. The SHA-1 algorithm is used to verify that a file has not been modified. It does this by producing a checksum before the file is transmitted and again when it reaches its destination.
+
+Collision resistance means that it is computationally infeasible to find two distinct inputs that hash the same output. Preimage resistance means that it is computationally infeasible to find a input that has the same output as any specified input.
+
+A checksum is a small block of data that's used to detect errors in digital data. It's a set of numbers and letters that acts as a fingerprint for a file. Before transmission, a checksum value is assigned to each piece of data or file. This is done by running a CHF. The checksum value is then appended to the message to be sent to the receiver. Checksum values can be used to verify that your file hasn't been corrupted or modified. If the checksum values don't match, then the file might not have downloaded properly or the connection could have been hijacked. Microsoft File Checksum Integrity Verifier (FCIV) is one free checksum utility. It supports the MD5 and SHA1 cryptographic hash functions.
 
 2. How is commit different from staging?
 
