@@ -1,0 +1,24 @@
+Where is commit ID stored?
+
+What is SSH?
+	IP, host name, username, password
+
+ for ssl connection
+
+	1. install ssh-client
+	2. install ssh-server
+	3. sudo ufw allow ssh
+	3. enable ssh (sudo systemctl enable ssh)
+
+Figure out how ssh works and how to connect to server and also accept as client
+https://phoenixnap.com/kb/ssh-to-connect-to-remote-server-linux-or-windows
+
+how to make python functions with variable number of arguments that returns the sum of the inputs given
+
+how to call function saved in a python file in the python interpreter
+
+how to send files over ssh
+
+architechture and platform triple
+
+python function to find velocity when acceleration is not constant w.r.t time
