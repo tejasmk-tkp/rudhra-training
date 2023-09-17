@@ -1,4 +1,4 @@
-def sum(*args):
-    return sum(args)
-
-print(sum(1,2,3,4,5,6,7,8,9))
+def add(*args):
+    args = list(args)
+    val = sum(args)
+    return val
