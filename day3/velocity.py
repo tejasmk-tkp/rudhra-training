@@ -1,11 +1,13 @@
-def g(t):
-    r = 1
-    a = r*t    
-    return a
+from scipy.integrate import quad
 
-def v(t):
-    v = t * g(t)
+def g(t,k,n):
+    return k*(t**n)
+
+def v(T):
+    k = 1
+    n = 1
+    v = quad(g, 0, T, args=(k,n))
     return v
 
-t=int(input("Time: "))
-print(v(t))
+T = int(input("Time: "))
+print(v(T))
