@@ -1,0 +1,24 @@
+1. Integrate different functions with python
+
+
+tool - obj dump
+
+poxis
+
+system calls
+
+API - interaction between to applications
+
+optional parameter
+
+list comprehension
+
+c programming
+
+turing machine
+
+hash maps
+
+integer, float, pointer - Base CPU data types
+
+velocity function in c
