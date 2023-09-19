@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define N 1000
+#define N 10000
 
 float vel(int rate, int time ) {
 	float v = 0, a = 0;
@@ -13,4 +13,8 @@ float vel(int rate, int time ) {
 
 }
 
-int main() {return 0;}
+void main() {
+	
+	float v = vel(4, 5);
+	printf("%.2f", v);
+}
