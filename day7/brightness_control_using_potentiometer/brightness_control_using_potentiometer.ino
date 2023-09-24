@@ -12,6 +12,6 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   int val = analogRead(pot);
-  Serial.println(val);
+  val = map(val, 0, 1023, 0, 255);
   analogWrite(led, val);
 }
