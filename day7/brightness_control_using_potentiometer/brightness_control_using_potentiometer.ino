@@ -12,6 +12,6 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   int val = analogRead(pot);
-  val = map(val, 0, 1023, 0, 255);
+  val = map(val, 403, 1023, 255, 0);
   analogWrite(led, val);
 }
