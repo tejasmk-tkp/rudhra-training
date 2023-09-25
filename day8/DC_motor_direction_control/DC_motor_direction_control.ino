@@ -1,5 +1,5 @@
-const int IN1 = 4;
-const int IN2 = 5;
+const int IN1 = 6;
+const int IN2 = 7;
 
 void setup() {
   // put your setup code here, to run once:
@@ -13,19 +13,23 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   //Direction 1
-  //if (Serial.available()) {
-    //Serial.println("A");
+  if (Serial.available()) {
+        
+    int key = Serial.parseInt();
     
-    //int key = Serial.parseInt();
-    //Serial.println(key);
-      //if (key == 0) {
-        digitalWrite(IN1, LOW);
-        digitalWrite(IN2, HIGH);
-      //}
-      delay(5000);
-      //if (key == 1) {
-        digitalWrite(IN1, HIGH);
-        digitalWrite(IN2, LOW);
-      //}
-  //}
+    if (key == 1) {
+      digitalWrite(IN1, LOW);
+      digitalWrite(IN2, HIGH);
+      }
+  
+    if (key == 2) {
+      digitalWrite(IN1, HIGH);
+      digitalWrite(IN2, LOW);
+      }
+
+    if (key == 0) {
+      digitalWrite(IN1, LOW);
+      digitalWrite(IN2, LOW);
+    }
+  }
 }
