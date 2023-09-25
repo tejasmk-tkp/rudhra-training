@@ -9,7 +9,7 @@ void setup() {
   Serial.println("Press 1");
 }
 void loop() {
-  if (Serial.available()) {
+  if (Serial.available() != 0) {
     int key_press = Serial.parseInt();
 
     if (key_press == 1 && ledState == LOW) {
