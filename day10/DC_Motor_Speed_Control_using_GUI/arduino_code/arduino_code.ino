@@ -6,7 +6,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   if (Serial.available() > 0) {
-    int data = Serial.parseInt();
+    int data = Serial.read();
     Serial.print("Received: ");
     Serial.println(data);
   }
