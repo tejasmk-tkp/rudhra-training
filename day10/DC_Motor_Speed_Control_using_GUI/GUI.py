@@ -2,7 +2,7 @@ from tkinter import *
 import serial as sl
 import struct
 
-arduino = sl.Serial("/dev/ttyACM1", 9600)
+arduino = sl.Serial("/dev/ttyACM0", 9600)
 
 def send_PWM(value):
     value = int(value)
