@@ -1,13 +1,46 @@
 import random as rn
-from time import *
+#from time import *
+import math
+import matplotlib.pyplot as plt
+
+class PIDController:
+    def __init__(self, kp, ki, kd, setpoint):
+        self.kp = kp
+        self.ki = ki
+        self.kd = kd
+        self.setpoint = setpoint
+        self.error = 0
+        self.integral = 0
+        self.derivative = 0
+        self.error_prev = 0
+
+    def update(self, process_variable):
+        self.error = setpoint - process_variable
+        self.integral += self.error
+        self.derivative = (self.error - self.error_prev)
+        output = self.kp*self.error + self.ki*self.integral + self.kd*self.derivative
+        self.error_prev = self.error
+        return output
 
 noise = rn.gauss(0, 15)
+setpoint = int(input("Enter Target Angle: "))
+processVariable = setpoint + noise
+#setpoint = 10
 
-sp = int(input("Enter Target Angle: "))
+pid_controller = PIDController(1, 0.1, 0.01, setpoint)
 
-pv = sp + noise
+for t in range(100):
+    measured_value = processVariable
+    output = pid_controller.update(measured_value)
+    error = pid_controller.error
+    print(setpoint, measured_value, error, output)
 
-Kp, Ki, Kd = 1, 0, 0
+plt.plot(measured_value)
+plt.plot(output)
+#plt.plot(setpoint)
+plt.show()
+
+'''Kp, Ki, Kd = 1, 0, 0
 
 e = sp - pv
 
@@ -33,4 +66,4 @@ while pv != sp:
     print(sp, pv, e)
 
     sleep(1)
-
+'''
