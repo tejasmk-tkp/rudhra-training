@@ -1,7 +1,6 @@
 import random as rn
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy.integrate import odeint
+#import matplotlib.pyplot as plt
+import time
 
 def PID(Kp, Ki, Kd, setpoint, feedback):
     
@@ -27,16 +26,18 @@ def PID(Kp, Ki, Kd, setpoint, feedback):
 noise = rn.gauss(0, 15)
 setpoint = int(input("Enter Target Angle: "))
 feedback = setpoint + noise
-error = setpoint - feedback
-print("Setpoint", "Feedback", "Error")
-print(setpoint, feedback, error)
+#error = setpoint - feedback
+print("Setpoint", "Feedback")
+print(setpoint, feedback)
 
 while feedback != setpoint:
+    noise = rn.gauss(0, 15)
     output = PID(1, 0.01, 0, setpoint, feedback)
     #print(output)
-    feedback = feedback+output
+    feedback += output + noise
     #print(feedback)
-    error = setpoint - feedback
-    print(setpoint, feedback, error)
+    #error = setpoint - feedback
+    print(setpoint, feedback)
+    time.sleep(0.1);
 
 print("Target Achieved")
