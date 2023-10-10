@@ -3,16 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.integrate import odeint
 
-'''class PID:
-    def __init__(self, Kp, Ki, Kd):
-        self.Kp = Kp
-        self.Ki = Ki
-        self.Kd = Kd
-        self.time = 0
-        self.time_prev = -1e-6
-        self.I = 0
-        self.e_prev = 0'''
-
 def PID(Kp, Ki, Kd, setpoint, feedback):
     
     time = 0
@@ -21,11 +11,12 @@ def PID(Kp, Ki, Kd, setpoint, feedback):
     e_prev = 0
 
     e = setpoint - feedback
-    print(e)    
+    #print(e)    
     P = Kp*e
     I += Ki*e*(time - time_prev)
     D = Kd*(e - e_prev)/(time - time_prev)
-    print(P, I, D)
+    #print(P, I, D)
+      
     Output = P + I + D
 
     e_prev = e
@@ -36,8 +27,16 @@ def PID(Kp, Ki, Kd, setpoint, feedback):
 noise = rn.gauss(0, 15)
 setpoint = int(input("Enter Target Angle: "))
 feedback = setpoint + noise
-print(setpoint, feedback)
+error = setpoint - feedback
+print("Setpoint", "Feedback", "Error")
+print(setpoint, feedback, error)
 
-output = PID(0.1, 0.01, 0, setpoint, feedback)
-print(output)
+while feedback != setpoint:
+    output = PID(1, 0.01, 0, setpoint, feedback)
+    #print(output)
+    feedback = feedback+output
+    #print(feedback)
+    error = setpoint - feedback
+    print(setpoint, feedback, error)
 
+print("Target Achieved")
