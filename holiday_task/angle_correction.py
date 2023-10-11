@@ -1,5 +1,5 @@
 import random as rn
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import time
 
 def PID(Kp, Ki, Kd, setpoint, feedback):
@@ -30,6 +30,12 @@ feedback = setpoint + noise
 print("Setpoint", "Feedback")
 print(setpoint, feedback)
 
+time_val = []
+feedback_val = []
+setpoint_val = []
+
+start_time = time.time()
+
 while feedback != setpoint:
     noise = rn.gauss(0, 15)
     output = PID(1, 0.01, 0, setpoint, feedback)
@@ -37,7 +43,17 @@ while feedback != setpoint:
     feedback += output + noise
     #print(feedback)
     #error = setpoint - feedback
+    time_val.append(time.time() - start_time)
+    feedback_val.append(feedback)
+    setpoint_val.append(setpoint)
     print(setpoint, feedback)
+
+    plt.clf()
+    plt.plot(time_val, feedback_val)
+    plt.plot(time_val, setpoint_val, 'r-')
+    plt.grid()
+    plt.pause(0.1);
+
     time.sleep(0.1);
 
 print("Target Achieved")
