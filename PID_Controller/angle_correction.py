@@ -46,7 +46,7 @@ plt.grid()
 
 while feedback != setpoint:
     noise = rn.gauss(0, 15)
-    output = PID(2, 2, 0, setpoint, feedback)
+    output = PID(1.5, 128, 0, setpoint, feedback)
     #print(output)
     feedback += output + noise
     #print(feedback)
