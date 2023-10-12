@@ -1,0 +1,6 @@
+Neural Networks
+filters
+weights
+transfer learning
+Diff b/w ML and DL
+supervised learning
