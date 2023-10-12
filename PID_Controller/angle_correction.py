@@ -25,16 +25,24 @@ def PID(Kp, Ki, Kd, setpoint, feedback):
 
 noise = rn.gauss(0, 15)
 setpoint = int(input("Enter Target Angle: "))
-feedback = setpoint + noise
+current_angle = int(input("Enter Current Angle: "))
+feedback = current_angle
 #error = setpoint - feedback
 print("Setpoint", "Feedback")
 print(setpoint, feedback)
 
-time_val = []
-feedback_val = []
-setpoint_val = []
+time_val = [0]
+feedback_val = [current_angle]
+setpoint_val = [setpoint]
 
 start_time = time.time()
+
+plt.clf()
+plt.plot(time_val, feedback_val)
+plt.plot(time_val, setpoint_val, 'r-')
+plt.grid()
+
+#start_time = time.time()
 
 while feedback != setpoint:
     noise = rn.gauss(0, 15)
