@@ -16,26 +16,18 @@ void loop() {
   if (Serial.available()) {
 
     int PWM_val = Serial.read();
-    if (PWM_val != 0) {
-      Serial.println(PWM_val);
+    Serial.println(PWM_val); 
 
-    //if (key == '1') {
+    if (PWM_val > 0) {
       digitalWrite(IN1, LOW);
       digitalWrite(IN2, HIGH);
       analogWrite(PWM, PWM_val);
     }
-    //}
-  
-    // if (key == '2') {
-    //   digitalWrite(IN1, HIGH);
-    //   digitalWrite(IN2, LOW);
-    //   analogWrite(PWM, PWM_val);
-    // }
 
-    // if (key == '0') {
-    //   digitalWrite(IN1, LOW);
-    //   digitalWrite(IN2, LOW);
-    //   analogWrite(PWM, PWM_val);
-    // }
+    if (PWM_val < 0) {
+      digitalWrite(IN1, HIGH);
+      digitalWrite(IN2, LOW);
+      analogWrite(PWM, PWM_val);
+    }
   }
 }
