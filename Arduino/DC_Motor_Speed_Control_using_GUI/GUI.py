@@ -3,13 +3,9 @@ import serial as sl
 
 arduino = sl.Serial("/dev/ttyACM0", 9600)
 
-lst = [0]
 def send_PWM(value):
-    if value != 0:
-        value = int(value)
-        lst[0] = value
-        value = bytes(lst)
-        arduino.write(value)
+    value = bytes([int(value)])
+    arduino.write(value)
 
 root = Tk()
 root.title("DC Motor Speed and Direction Control")

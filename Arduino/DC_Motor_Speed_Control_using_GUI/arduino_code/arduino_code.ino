@@ -7,6 +7,7 @@ void setup() {
   Serial.begin(9600);
   pinMode(IN1, OUTPUT);
   pinMode(IN2, OUTPUT);
+  pinMode(PWM, OUTPUT);
   digitalWrite(IN1, LOW);
   digitalWrite(IN2, LOW);
 }
@@ -26,6 +27,12 @@ void loop() {
 
     if (PWM_val < 0) {
       digitalWrite(IN1, HIGH);
+      digitalWrite(IN2, LOW);
+      analogWrite(PWM, PWM_val);
+    }
+
+    if (PWM_val == 0) {
+      digitalWrite(IN1, LOW);
       digitalWrite(IN2, LOW);
       analogWrite(PWM, PWM_val);
     }
