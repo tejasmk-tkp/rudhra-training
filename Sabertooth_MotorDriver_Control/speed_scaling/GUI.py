@@ -16,10 +16,10 @@ def map_range(value, from_low, from_high, to_low, to_high):
 def send_data(data):
     #if value != 0:
     store = data
-    data = map_range(data, 0, 100, 0, 255)
-    print(store, data)
-    data = int(data)
-    data = bytes([data])
+    data1, data2 = map_range(data, 0, 100, 1, 127), map_range(data, 0, 100, 128, 255)
+    print(store, data1, data2)
+    data = bytes([int(data1), int(data2)])
+    print(data, len(data))
     motor_driver.write(data)
 
 root = Tk()
