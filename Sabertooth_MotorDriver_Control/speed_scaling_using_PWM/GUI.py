@@ -1,7 +1,7 @@
 from tkinter import *
 import serial as sl
 
-arduino = sl.Serial("/dev/ttyACM1", 9600)
+arduino = sl.Serial("/dev/ttyACM0", 9600)
 
 def send_data(data):
     store = data

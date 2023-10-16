@@ -16,8 +16,8 @@ void loop() {
   // put your main code here, to run repeatedly:
   if (Serial.available()) {
 
-    int PWM_val = Serial.read();
-    Serial.println(PWM_val); 
+    byte PWM_val = Serial.read();
+    Serial.println(PWM_val);
 
     if (PWM_val > 0) {
       digitalWrite(IN1, LOW);
