@@ -46,27 +46,23 @@ def map_range(value, from_low, from_high, to_low, to_high):
 
 while True:
     controlValue = controller()
-    #print(controlValue[1])
+    #print(controlValue[0])
 
-    #Forward (-1, 0)
-    M1_forward = map_range(controlValue[1], 0, -1, 64, 127)
-    M2_forward = map_range(controlValue[1], 0, -1, 192, 255)
+    '''#Forward and Backward (1, -1)
+    M1_forward = map_range(controlValue[1], 1, -1, 1, 127)
+    M2_forward = map_range(controlValue[1], 1, -1, 128, 255)
     f_data = bytes([M1_forward, M2_forward])
     print(controlValue[1], M1_forward, M2_forward, f_data)
-    #motor_driver.write(f_data)
+    #motor_driver.write(f_data)'''
 
-    '''#Backward (-1, 0)
-    M1_backward = map_range(controlValue[0], 0, 1, 64, 1)
-    M2_backward = map_range(controlValue[0], 0, 1, 192, 128)
-    b_data = bytes([M1_backward, M2_backward])
-    print(controlValue[1], M1_backward, M2_backward, b_data)
-    #motor_driver.write(b_data)'''
+    #Left (-1, 0)
+    M1_turn = map_range(controlValue[0], 0, -1, 64, 127) #Left Motor
+    M2_turn = map_range(controlValue[0], 0, -1, 192, 255) #Right Motor
+    t_data = bytes([M1_turn, M2_turn])
+    print(controlValue[0], M1_turn, M2_turn, t_data)
 
-    '''#Left (-1, 0)
-    M1_backward = map_range(controlValue[1], -1, 0, , ) #Left Motor
-    M2_backward = map_range(controlValue[1], -1, 0, , ) #Right Motor
 
-    #Right (0, 1)
+    '''#Right (0, 1)
     M1_backward = map_range(controlValue[1], 0, 1, , ) #Left Motor
     M2_backward = map_range(controlValue[1], 0, 1, , ) #Right Motor'''
 
